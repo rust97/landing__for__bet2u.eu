@@ -13,10 +13,11 @@ function MainMatch({ match }) {
     .split(",");
   return (
     <div className="slide__wrap flex justify-center items-center flex-col">
-      <div className="flex justify-around items-stretch w-full">
+      <div className="flex team__info__main items-stretch w-full">
         <div className="team flex justify-around items-center flex-col ">
           <p className="w-full text-center font-bold">{match.home}</p>
-          <div
+          <a
+            href={`${match.url}${match.odds.W1_event_id}`}
             className="team__logo"
             style={{
               background: `url(https://bet2u.eu/dynamic/logo/${match.home.replace(
@@ -55,7 +56,8 @@ function MainMatch({ match }) {
         </div>
         <div className="team flex justify-center items-center flex-col ">
           <p className="w-full text-center font-bold">{match.away}</p>
-          <div
+          <a
+            href={`${match.url}${match.odds.W2_event_id}`}
             className="team__logo"
             style={{
               background: `url(https://bet2u.eu/dynamic/logo/${match.away.replace(
