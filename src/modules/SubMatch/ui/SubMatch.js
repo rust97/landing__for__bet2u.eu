@@ -35,7 +35,7 @@ function SubMatch({ match }) {
       <div className="sub-match__coefficient flex  items-center">
         <div className="flex flex-col justify-center items-center">
           <span>
-            <a className="sub__co" href={`${match.url}${match.W1_event_id}`}>
+            <a className="sub__co" href={`${match.url}&event=${W1_event_id}`}>
               {W1}
             </a>
           </span>
@@ -43,7 +43,7 @@ function SubMatch({ match }) {
         </div>
         <div className="flex flex-col justify-center items-center">
           <span>
-            <a className="sub__co" href={`${match.url}${match.Draw_event_id}`}>
+            <a className="sub__co" href={`${match.url}&event=${Draw_event_id}`}>
               {Draw}
             </a>
           </span>
@@ -51,7 +51,7 @@ function SubMatch({ match }) {
         </div>
         <div className="flex flex-col justify-center items-center">
           <span>
-            <a className="sub__co" href={`${match.url}${match.W1_event_id}`}>
+            <a className="sub__co" href={`${match.url}&event=${W2_event_id}`}>
               {W2}
             </a>
           </span>

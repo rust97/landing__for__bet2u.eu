@@ -17,7 +17,7 @@ function MainMatch({ match }) {
         <div className="team flex justify-around items-center flex-col ">
           <p className="w-full text-center font-bold">{match.home}</p>
           <a
-            href={`${match.url}${match.odds.W1_event_id}`}
+            href={`${match.url}&event=${match.odds.W1_event_id}`}
             className="team__logo"
             style={{
               background: `url(https://bet2u.eu/dynamic/logo/${match.home.replace(
@@ -29,7 +29,7 @@ function MainMatch({ match }) {
           <span className="teams__coefficient flex flex-col justify-around items-center">
             {" "}
             <a
-              href={`${match.url}${match.odds.W1_event_id}`}
+              href={`${match.url}&event=${match.odds.W1_event_id}`}
               className="coefficient"
             >
               {match.odds.W1}{" "}
@@ -45,7 +45,7 @@ function MainMatch({ match }) {
           </div>
           <span className="teams__coefficient flex flex-col justify-center items-center">
             <a
-              href={`${match.url}${match.odds.Draw_event_id}`}
+              href={`${match.url}&event=${match.odds.Draw_event_id}`}
               className="coefficient"
             >
               {" "}
@@ -57,7 +57,7 @@ function MainMatch({ match }) {
         <div className="team flex justify-center items-center flex-col ">
           <p className="w-full text-center font-bold">{match.away}</p>
           <a
-            href={`${match.url}${match.odds.W2_event_id}`}
+            href={`${match.url}&event=${match.odds.W2_event_id}`}
             className="team__logo"
             style={{
               background: `url(https://bet2u.eu/dynamic/logo/${match.away.replace(
@@ -69,7 +69,7 @@ function MainMatch({ match }) {
           <span className="teams__coefficient flex flex-col justify-center items-center">
             {" "}
             <a
-              href={`${match.url}${match.odds.W2_event_id}`}
+              href={`${match.url}&event=${match.odds.W2_event_id}`}
               className="coefficient"
             >
               {match.odds.W2}{" "}

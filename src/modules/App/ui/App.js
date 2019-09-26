@@ -27,8 +27,8 @@ function App(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     accessibility: true,
-    draggable: false
-    // autoplay: true
+    draggable: false,
+    autoplay: true
   };
   if (isLoading) {
     return (
@@ -38,36 +38,40 @@ function App(props) {
       </div>
     );
   } else {
-    return (
-      <React.Fragment>
-        <div className="bg__container">
+    if (allMatches.length === 0) {
+      window.location.replace(`https://bet2u.su/d${window.location.search}`);
+    } else {
+      return (
+        <React.Fragment>
+          <div className="bg__container">
+            <div
+              className="page__container  p-10"
+              style={{ background: `url(${bg})` }}
+            >
+              <Slider {...settings}>
+                {mainMatches.map(match => {
+                  return <MainMatch match={match} key={match.id} />;
+                })}
+              </Slider>
+            </div>
+          </div>
           <div
-            className="page__container  p-10"
-            style={{ background: `url(${bg})` }}
+            className="sub-match__list-wrap flex flex-col  items-center "
+            style={{ background: `url(${bg1})` }}
           >
-            <Slider {...settings}>
-              {mainMatches.map(match => {
-                return <MainMatch match={match} key={match.id} />;
+            <h1 className="text-center font-bold text-5xl mb-10">
+              Ближайшие матчи
+            </h1>
+            <div className="flex justify-around flex-wrap">
+              {subMatches.map(match => {
+                return <SubMatch match={match} key={match.id} />;
               })}
-            </Slider>
+            </div>
+            <BannerSlider />
           </div>
-        </div>
-        <div
-          className="sub-match__list-wrap flex flex-col  items-center "
-          style={{ background: `url(${bg1})` }}
-        >
-          <h1 className="text-center font-bold text-5xl mb-10">
-            Ближайшие матчи
-          </h1>
-          <div className="flex justify-around flex-wrap">
-            {subMatches.map(match => {
-              return <SubMatch match={match} key={match.id} />;
-            })}
-          </div>
-          <BannerSlider />
-        </div>
-      </React.Fragment>
-    );
+        </React.Fragment>
+      );
+    }
   }
 }
 

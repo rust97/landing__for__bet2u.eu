@@ -16,13 +16,8 @@ export function mainReducer(state = initialState, action) {
       return {
         ...state,
         allMatches: action.matches,
-        mainMatches: [action.matches[0], action.matches[1], action.matches[2]],
-        subMatches: [
-          action.matches[1],
-          action.matches[2],
-          action.matches[3],
-          action.matches[4]
-        ]
+        mainMatches: action.mainMatches,
+        subMatches: action.subMatches
       };
     case GET_ALL_MATCHES_SUCCEEDED:
       return {
