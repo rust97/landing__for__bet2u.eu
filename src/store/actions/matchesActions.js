@@ -7,14 +7,17 @@ export function getData(matches) {
   let mainMatches;
   let subMatches;
   matches.forEach(el => {
-    // el.url = el.url.replace(
-    //   /https:\/\/bet2u.com\/#\/sport\/\?type=0\&region/g,
-    //   "https://bet2u.su/d?regio"
-    // );
-    el.url = `${el.url.replace(
-      /https:\/\/bet2u.com\/#\/sport\/\?type=0\&region/g,
-      "https://bet2u.su/d?regio"
-    )}&${window.location.search.slice(1)}`;
+    let obj = {};
+    const num = el.url.match(/(\w+)(=)(\d+)/gi);
+    num.forEach(item => {
+      const result = item.match(/(\w+)/gi);
+      obj[result[0]] = result[1];
+    });
+    el.url = `https://bet2u.su/d?regio=${obj.region}&sport=${
+      obj.sport
+    }&competition=${obj.competition}&game=${obj.game}${
+      !window.location.search ? "" : `&${window.location.search.slice(1)}`
+    }`;
   });
 
   if (matches.length <= 3) {
